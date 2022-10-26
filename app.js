@@ -4,6 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 
 const path = require("path");
+const rootDir = require("./helpers/path");
 
 // import admin routes file
 const adminRoutes = require("./routes/admin");
@@ -16,11 +17,7 @@ const app = express();
 // Use body parser for all the urls.
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// //app.use accepts both post and get requests .
-// app.use("/", (req, res, next) => {
-//   console.log("This is a middleware that always runs");
-//   next();
-// });
+app.use(express.static(path.join(rootDir, "public")));
 // Admin routes. "/admin" is the prefix for all the admin routes.
 app.use("/admin", adminRoutes);
 
@@ -29,7 +26,7 @@ app.use(shopRoutes);
 
 // 404 Page Route
 app.use((req, res, next) => {
-  res.status(404).sendFile(path.join(__dirname, "views", "404-page.html"));
+  res.status(404).sendFile(path.join(__dirname, "views", "404.html"));
 });
 
 // Create server using express
