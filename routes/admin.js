@@ -1,11 +1,13 @@
+// To fetch files from other directories we need path module
+const path = require("path");
 const express = require("express");
 const router = express.Router();
 
+const rootDir = require("../helpers/path");
+
 router.get("/add-product", (req, res, next) => {
   console.log("Add Product Middleware");
-  res.send(
-    '<html><form action="/admin/add-product" method="POST"><input type="text" name="product-name"></input><button type="submit">Add Product</button></form></html>'
-  );
+  res.sendFile(path.join(rootDir, "views", "add-product.html"));
 });
 
 // app.post only accespts post requests .

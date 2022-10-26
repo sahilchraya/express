@@ -3,6 +3,8 @@ const express = require("express");
 // import bodyParser Package
 const bodyParser = require("body-parser");
 
+const path = require("path");
+
 // import admin routes file
 const adminRoutes = require("./routes/admin");
 // import admin routes file
@@ -27,7 +29,7 @@ app.use(shopRoutes);
 
 // 404 Page Route
 app.use((req, res, next) => {
-  res.status(404).send("<h1>You seem to be lost. Can i help?</h1>");
+  res.status(404).sendFile(path.join(__dirname, "views", "404-page.html"));
 });
 
 // Create server using express
