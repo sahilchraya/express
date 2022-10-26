@@ -1,0 +1,19 @@
+{
+  "name": "express",
+  "version": "1.0.0",
+  "description": "Learning Node and Express",
+  "main": "app.js",
+  "scripts": {
+    "dev": "node app.js",
+    "watch": "nodemon app.js"
+  },
+  "keywords": [
+    "Learning"
+  ],
+  "author": "Sahil Chraya",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2"
+  }
+}
